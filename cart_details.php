@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL);
 $cart_id=$_POST['q'];
 include "connection.php";
 $query="select product_id from cart_details where cart_id = $cart_id";

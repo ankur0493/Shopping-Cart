@@ -46,7 +46,7 @@ $username=$_SESSION["username"];
     			$(document.getElementById('cart_details')).html(data);
     		},
     		error:function(){
-    			$(document.getElementById('cart_details')).html("There is error while submit.");
+    			$(document.getElementById('cart_details')).html("An error occurred while submitting the cart ID. Please try again or contact the system administrator.");
     		}
     	})
     }
@@ -59,13 +59,13 @@ $username=$_SESSION["username"];
                 $(document.getElementById(rowid)).html(data);
             },
             error:function(){
-                $(document.getElementById(rowid)).html('There is error while submit');
+                $(document.getElementById(rowid)).html('An error occurred while adding the row. Please try again or contact the system administrator.');
             }
         });
      }
      jQuery(document).ready(function(){
      	jQuery('.invoice').submit(function(){
-     		if(!(this.cust_name.value== "") && !(this.cust_tel.value == "") && !(this.cust_add.value == "")){
+     		if(!(this.cust_name.value== "") && !(this.cust_tel.value == "") && (this.cust_tel.length ==10	) && !(this.cust_add.value == "")){
 		     	$.ajax({
 		     		url     : $(this).attr('action'),
 	            	type    : $(this).attr('method'),
@@ -74,7 +74,7 @@ $username=$_SESSION["username"];
 		     			$(document.getElementById('invoiceTotal')).html(data);
 		     		},
 		     		error:function(){
-		     			$(document.getElementById('invoiceTotal')).html('Error');
+		     			$(document.getElementById('invoiceTotal')).html('An error occurred while generating the invoice. Please try again.');
 		     		}
 		     	});
 		     }
